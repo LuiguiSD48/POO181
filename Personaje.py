@@ -1,10 +1,13 @@
 
 class Personaje:
     
-    #atributos
-    especie="Humano"
-    nombre="Marcus Fenix"
-    altura=1.90
+    
+    def __init__(self,esp,nom,alt):
+        #atributos
+        self.especie=esp
+        self.nombre=nom
+        self.altura=alt
+  
     
     #Metodos
     def correr(self,status):
