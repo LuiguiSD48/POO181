@@ -9,6 +9,8 @@ nomH=input("Escribe el nombre del heroe: ")
 altH=float(input("Escribe la altura del heroe: "))
 cargaH=int(input("Escribe la carga del heroe: "))
 
+
+
 print("")
 print("###Solicitud de datos de villano###")
 espV=input("Escribe la especie del villano: ")
@@ -20,27 +22,29 @@ cargaV=int(input("Escribe la carga del villano: "))
 Heroe= Personaje(espH,nomH,altH)
 Villano= Personaje(espV,nomV,altV)
 
-
+Heroe.setNombre("Pepe Pecas")
 
 #Acceder a sus atributos
 print("ATRIBUTOS DE Heroe")
-print("El personaje pertenece a la raza: "+Heroe.especie)
-print("Se llama: "+Heroe.nombre)
-print("Mide: "+str(Heroe.altura)+" mts")
+print("El personaje pertenece a la raza: "+Heroe.getEspecie())
+print("Se llama: "+Heroe.getNombre())
+print("Mide: "+str(Heroe.getAltura())+" mts")
 
 #Acceder a sus metodos
 print("METODOS DE PJ")
 Heroe.lanzarGranada()
 Heroe.correr(True)
 Heroe.recargarArma(cargaH)
+#Heroe.__pensar()
 
 print("ATRIBUTOS DE Villano")
-print("El personaje pertenece a la raza: "+Villano.especie)
-print("Se llama: "+Villano.nombre)
-print("Mide: "+str(Villano.altura)+" mts")
+print("El personaje pertenece a la raza: "+Villano.getEspecie())
+print("Se llama: "+Villano.getNombre())
+print("Mide: "+str(Villano.getAltura())+" mts")
 
 
 print("METODOS DE PJ")
 Villano.lanzarGranada()
 Villano.correr(False)
 Villano.recargarArma(cargaV)
+
