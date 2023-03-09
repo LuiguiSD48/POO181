@@ -24,21 +24,14 @@ class Personaje:
         cargador=cargador+municiones
         print("El arma tiene ahora "+ str(cargador)+" balas")
         
+    def __pensar(selg):
+        print("Toy pensanding........")
+        
     def getEspecie(self):
         return self.__especie
     
     def setEspecie(self,esp):
         self.__especie=esp
         
-    def getNombre(self):
-        return self.__nombre
-    
-    def setNombre(self,nom):
-        self.__nombre=nom
-        
-    def getAltura(self):
-        return self.__altura
-    
-    def setEspecie(self,alt):
-        self.__altura=alt
+
     

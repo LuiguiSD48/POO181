@@ -11,6 +11,8 @@ def agregarBoton():
     botonVerde.config(text="+",bg="green",fg="white")
     botonNuevo= Button(seccion3,text="Boton Nuevo")
     botonNuevo.pack()
+    
+
 #1 Instanciamos el objeto ventana
 ventana=Tk()
 ventana.title("Practica 11: 3 Frames")
