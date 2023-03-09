@@ -20,7 +20,7 @@ checkbox_value1 = tk.BooleanVar()
 checkbox1 = tk.Checkbutton(seccion1,text="Caracter Especial", variable=checkbox_value1).pack()
 
 def generar():
-    logica().generarContra(EntryN,checkbox_value,checkbox_value1)
+    logica().generarContra(EntryN,checkbox1,checkbox)
 
 botonVerde=Button(seccion1,text="Generar Contraseña",bg="gray",command=generar)
 botonVerde.pack()  
