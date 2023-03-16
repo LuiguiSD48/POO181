@@ -35,7 +35,8 @@ EntryST1= Entry(seccion1,textvariable=entryCU).pack()
 
 
 def generarMat():
- nuevou=usuario.crear(entryNU.get(),entryAP.get(),entryAM.get(),entryAN.get(),entryAC.get(),entryCU.get())
+ nuevou=usuario(entryNU.get(),entryAP.get(),entryAM.get(),entryAN.get(),entryAC.get(),entryCU.get())
+ nuevou.CrearM()
 
 botonVerde=Button(seccion1,text="GENERAR MATRICULA ",bg="gray",command=generarMat)
 botonVerde.pack()  
