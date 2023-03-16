@@ -1,9 +1,7 @@
 from tkinter import *
 import tkinter as tk
 from logica import *
-from logica import *
 
-crac=usuario()
 
 ventana=Tk()
 ventana.title("Practica 11: 3 Frames")
@@ -31,16 +29,17 @@ entryST = tk.StringVar()
 labelS= Label(seccion1,text="Numero de caracteres: ").pack()
 EntryST1= Entry(seccion1,textvariable=entryST).pack()
 
-def crearUsuario():
-    NuevoU=usuario(entryNU.get(),entryNT.get(),entryET.get(),entryST.get())
-    
+
+NuevoU=usuario(entryNT.get(),entryET.get(),entryST.get())
 
 
-botonVerde=Button(seccion1,text="Guardar datos ",bg="gray",command=crearUsuario)
+
+
+botonVerde=Button(seccion1,text="Guardar datos ",bg="gray")
 botonVerde.pack()  
 
 def mostrarS():
-    crac.mostrarSaldo()
+   print(usuario.mostrarSaldo(NuevoU.getSaldo())) 
 
 botonVerde1=Button(seccion1,text="Guardar datos ",bg="gray",command=mostrarS)
 botonVerde1.pack()  

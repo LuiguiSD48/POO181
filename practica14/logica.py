@@ -2,18 +2,18 @@ from tkinter import messagebox
 
 
 class usuario:
-    
- def __init__(self,cuen,nom,edad,saldo):
+ 
+ def __init__(self,nom,edad,saldo):
         #atributos
-        self.__cuenta=cuen
+
         self.__nombre=nom
         self.__edad=edad
         self.__saldo=saldo
       
  def mostrarSaldo(self):
-        messagebox.showinfo("Su saldo es", usuario.__saldo)
+        messagebox.showinfo("Su saldo es",self.__saldo)
     
- def ingresarEfectivo(self,cantidad):
+ def ingresarEfectivo(cantidad):
         usuario.__saldo=usuario.__saldo+cantidad
         messagebox.showinfo("Su nuevo saldo es", usuario.__saldo)   
         
