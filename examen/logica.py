@@ -14,7 +14,7 @@ class usuario:
        self.__carrera=car
       
  def CrearM(self):
-       x= self.__nombre[0]+self.__apeidop[0]+self.__apeidop[1]+self.__apeidom[0]+self.__apeidom[1]+self.__fnacimiento[2]+self.__fnacimiento[3]+self.__fcurso[2]+self.__fcurso[3]+self.__carrera[0]+self.__carrera[1]+self.__carrera[2]+str(b=random.range(1,10))
+       x= self.__nombre[0]+self.__apeidop[0]+self.__apeidop[1]+self.__apeidom[0]+self.__apeidom[1]+self.__fnacimiento[2]+self.__fnacimiento[3]+self.__fcurso[2]+self.__fcurso[3]+self.__carrera[0]+self.__carrera[1]+self.__carrera[2]
              
        messagebox.showinfo("cadena",x)  
         
