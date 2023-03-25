@@ -1,6 +1,16 @@
 from tkinter import *
 from tkinter import ttk
 import tkinter as tk
+from controladorBD import *
+
+#Crear un objeto de la clase controlador
+
+controlador=controladorBD()
+
+#Funcion para el biotin guardar
+
+def ejecutaInsert():
+    controlador.guardarUsuario(varNom.get(),varCor.get(),varCon.get())
 
 ventana= Tk()
 ventana.title("CRUD des usuarios")
@@ -30,7 +40,7 @@ varCon=tk.StringVar()
 lblCon=Label(pestana1,text="Contraseña: ").pack()
 txtCon=Entry(pestana1,textvariable=varCon).pack()
 
-btnGuardar=Button(pestana1,text="Guardar Uusuario").pack()
+btnGuardar=Button(pestana1,text="Guardar Uusuario",command=ejecutaInsert).pack()
 
 panel.add(pestana1,text='Formulario Usuarios')
 panel.add(pestana2,text='Buscar Usuario')
