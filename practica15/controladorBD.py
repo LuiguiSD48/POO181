@@ -72,6 +72,16 @@ class controladorBD:
             except sqlite3.OperationalError:
              print("Error Consulta")
              conx.close()
+    
+    def mostrarUsu(self):
+        conx=self.conexionBD()
+        cursor=conx.cursor()
+        qrMostrar= "SELECT * FROM TBregistrados"
+        
+        cursor.execute(qrMostrar)
+        msUsuario=cursor.fetchall()
+        return msUsuario
+        
 
     
    

@@ -12,13 +12,20 @@ controlador=controladorBD()
 def ejecutaInsert():
     controlador.guardarUsuario(varNom.get(),varCor.get(),varCon.get())
 
-textoCaja=tk.StringVar()
+
 def ejecutaSelectU():
     usuario=controlador.consultarUsuario(varBus.get())
     
     for usu in usuario:
         var1= str(usu[0])+" "+usu[1]+" "+usu[2]+" "+str(usu[3])
+        textEnc.insert("",var1)
+        textEnc.pack()
     
+def muestra():
+    datos=controlador.mostrarUsu()
+    
+    for row in datos:
+        tree.insert("",0,text=row[0],values=(row[1],row[2],row[3]))
    
    
 
@@ -65,7 +72,18 @@ btnBus=Button(pestana2,text="Buscar Usuario",command=ejecutaSelectU).pack()
 subBus=Label(pestana2,text="Encontrado",fg='blue',font=("Modern",18)).pack()
 
 
-textEnc=tk.Text(pestana2,height=5,width=52,textvariable=textoCaja).pack()
+textEnc=tk.Text(pestana2,height=5,width=52)
+textEnc.pack()
+
+#pestaña3
+btnMos=Button(pestana3,text="Mostrar Usuarios",command=muestra).pack()
+
+tree=ttk.Treeview(pestana3,height=10,columns=('#0','#1','#2','#3'))
+tree.heading('#0',text='Id')
+tree.heading('#1',text='Nombre')
+tree.heading('#2',text='Correo')
+tree.heading('#3',text='Contraseña')
+tree.pack()
 
 panel.add(pestana1,text='Formulario Usuarios')
 panel.add(pestana2,text='Buscar Usuario')
