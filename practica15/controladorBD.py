@@ -81,7 +81,54 @@ class controladorBD:
         cursor.execute(qrMostrar)
         msUsuario=cursor.fetchall()
         return msUsuario
+    
+    #Metodo para eliminar un usuario
+    def eliminarUsuario(self,id):
+        #1 preparar conexion
+        conx=self.conexionBD()
+        #2 verificar si id tiene algo 
+        if(id==""):
+            messagebox.showwarning("Cuidado","Id vacio, escribe un id valido")
+        else:
+            try:
+                
+                #3 preparar cursor y query
+                cursor=conx.cursor()
+                selecQry = "DELETE FROM TBregistrados WHERE id="+id
+                
+                #4 ejecutar y guardar la consulta
+                cursor.execute(selecQry)
+                conx.commit()
+                conx.close()
+                messagebox.showinfo("Listo","Usuario Eliminado")
+                
+                
+                
+            except sqlite3.OperationalError:
+             messagebox.showerror("Error","Usuario no existe")
+             conx.close()     
+               
+    #Metodo para actualizar usuarios
+    def actualizarUsuario(self,nom,cor,con,id):
+        #Importar conexion
+        conx= self.conexionBD()
         
+        #Validar campos
+        if(nom=="" or con=="" or cor=="" or id==""):
+            messagebox.showwarning("Ojitooo!","Formulario incompleto")
+        else:
+            
+            #Preparamos cursor,datos,querySQL
+            cursor=conx.cursor()
+            conH=self.encriptarCon(con)
+            datos=(nom,cor,conH)
+            qrInsert= "UPDATE TBregistrados SET nombre=?, correo=?, contra=? WHERE ID="+id
+            
+            #Ejrecutar insercion
+            cursor.execute(qrInsert,datos)
+            conx.commit()
+            conx.close()
+            messagebox.showinfo("Exito","Usuario Actualizado")
 
     
    
