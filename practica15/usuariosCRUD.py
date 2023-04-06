@@ -7,20 +7,21 @@ from controladorBD import *
 
 controlador=controladorBD()
 
-#Funcion para el biotin guardar
+#Funcion para el boton guardar
 
 def ejecutaInsert():
     controlador.guardarUsuario(varNom.get(),varCor.get(),varCon.get())
 
 
 def ejecutaSelectU():
+    textEnc.delete("1.0","end")
     usuario=controlador.consultarUsuario(varBus.get())
     
     for usu in usuario:
-        var1= str(usu[0])+" "+usu[1]+" "+usu[2]+" "+str(usu[3])
-        for row in var1:
-            textEnc.insert("",0,values=(row[0]))
-            textEnc.pack()
+        var1= "ID: "+str(usu[0])+" Nombre: "+usu[1]+" Correo: "+str(usu[2])+" Contraseña: "+str(usu[3])
+                
+    textEnc.insert(1.0,[var1])
+    
     
 def muestra():
     tree.delete(*tree.get_children())

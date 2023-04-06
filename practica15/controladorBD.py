@@ -66,7 +66,7 @@ class controladorBD:
                 cursor.execute(selecQry)
                 rsUsuario = cursor.fetchall()
                 conx.close()
-                
+                messagebox.showinfo("Listo","Usuario Encontrado")
                 return rsUsuario
                 
             except sqlite3.OperationalError:
