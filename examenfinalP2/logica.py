@@ -30,20 +30,17 @@ class logica():
                    
     def conversor1(numero1):
         
-        
-        romanos = {'I': 1, 'V': 5, 'X': 10,'L': 50, 'C': 100, 'D': 500, 'M': 1000}
-        i = 12
-        valor = numero1
-        entero=romanos[valor[0]];
-        for i in range(1,len(valor)):
-            if romanos[valor[i - 1]] < romanos[valor[i]]:
-                entero += (romanos[valor[i]] - 2) * romanos[valor[i - 1]]
-            else:
-                entero += romanos[valor[i]]
-        if(entero>50):
+        total = 0
+        prev = 0
+        for letra in numero1[::-1]:
+         valor = numero1[letra]
+         total += valor if valor >= prev else -valor
+         prev = valor
+      
+        if(total>50):
             messagebox.showerror("Listo","El numero excede 50")
         else:
-         messagebox.showinfo("Listo",str(entero)) 
+         messagebox.showinfo("Listo",str(total)) 
         
         
     
