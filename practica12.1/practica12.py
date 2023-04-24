@@ -27,7 +27,7 @@ def validar():
 
 
     
-botonVerde=Button(seccion1,text="Boton Verde",bg="green",command=validar)
+botonVerde=Button(seccion1,text="Ingresar",bg="green",command=validar)
 botonVerde.pack()   
 
 
