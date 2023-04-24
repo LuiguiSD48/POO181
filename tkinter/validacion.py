@@ -1,34 +1,24 @@
+from tkinter import messagebox
 
-
-class cUsuario:
+class Usuario:
 
     
-    def __init__(self,usu,con):
+    def __init__(self):
         #atributos
-        self.__usuario=usu
-        self.__contrasena=con
+        self.__usuario="luissandoval"
+        self.__contrasena="121041263"
         
-    def getUsuario(self):
-        return self.__usuario
-    
-    def setUsuario(self,usu):
-        self.__usuario=usu
-        
-    def getContrasena(self):
-        return self.__contrasena
-    
-    def setContrasena(self,con):
-        self.__contrasena=con
     
 
-    def validar1(usuario11,usuario22):
-        if usuario11.getUsuario==usuario22.getUsuario:
-            if usuario11.getContrasena==usuario22.getContrasena:
-                return True
-            else :
-                return False
+    def validar1(self,usu,contra):
+        if (usu=="" or contra==""):
+            messagebox.showwarning("Error","Faltan datos en el formulario")
         else:
-            return False
+            if(self.__usuario==usu and self.__contrasena==contra):
+                messagebox.showinfo("Exito","Bienvenido al sistema")
+            else:
+                messagebox.showerror("Error","Usuario o contyraseña incorrecta")
+
 
          
  

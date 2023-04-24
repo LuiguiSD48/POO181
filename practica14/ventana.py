@@ -17,29 +17,37 @@ entryNU = tk.StringVar()
 labelN= Label(seccion1,text="Titular: ").pack()
 EntryNU1= Entry(seccion1,textvariable=entryNU).pack()
 
-entryNT = tk.StringVar()
-labelT= Label(seccion1,text="Numero de caracteres: ").pack()
-EntryNT1= Entry(seccion1,textvariable=entryNT).pack()
-
 entryET = tk.StringVar()
-labelE= Label(seccion1,text="Numero de caracteres: ").pack()
+labelE= Label(seccion1,text="Edad: ").pack()
 EntryET1= Entry(seccion1,textvariable=entryET).pack()
 
 entryST = tk.StringVar()
-labelS= Label(seccion1,text="Numero de caracteres: ").pack()
+labelS= Label(seccion1,text="Saldo: ").pack()
 EntryST1= Entry(seccion1,textvariable=entryST).pack()
 
 
-NuevoU=usuario(entryNT.get(),entryET.get(),entryST.get())
+entryNT = tk.StringVar()
+labelT= Label(seccion1,text="Numero de cuenta: ").pack()
+EntryNT1= Entry(seccion1,textvariable=entryNT).pack()
+
+
+def NuevoUsu():
+   
+ NuevoU=usuario(entryNU.get(),entryET.get(),entryST.get(),entryNT.get())
+ print(NuevoU.getSaldo())
+ nuecoU=NuevoU
+ 
+ 
+
+ 
 
 
 
-
-botonVerde=Button(seccion1,text="Guardar datos ",bg="gray")
+botonVerde=Button(seccion1,text="Guardar datos ",bg="gray",command=NuevoU)
 botonVerde.pack()  
 
 def mostrarS():
-   print(usuario.mostrarSaldo(NuevoU.getSaldo())) 
+   print(usuario.mostrarSaldo(nuevo1.getSaldo())) 
 
 botonVerde1=Button(seccion1,text="Guardar datos ",bg="gray",command=mostrarS)
 botonVerde1.pack()  

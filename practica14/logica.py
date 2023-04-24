@@ -3,42 +3,43 @@ from tkinter import messagebox
 
 class usuario:
  
- def __init__(self,nom,edad,saldo):
+ def __init__(self,nom,edad,saldo,cuenta):
         #atributos
 
         self.__nombre=nom
         self.__edad=edad
         self.__saldo=saldo
+        self.__cuenta=cuenta
       
  def mostrarSaldo(self):
         messagebox.showinfo("Su saldo es",self.__saldo)
     
- def ingresarEfectivo(cantidad):
-        usuario.__saldo=usuario.__saldo+cantidad
+ def ingresarEfectivo(self,cantidad):
+        usuario.__saldo=usuario.__saldo+int(cantidad)
         messagebox.showinfo("Su nuevo saldo es", usuario.__saldo)   
         
  def retirarEfectivo(self,dispo):
-        usuario.__saldo=usuario.__saldo-dispo
+        usuario.__saldo=usuario.__saldo-int(dispo)
         messagebox.showinfo("Su nuevo saldo es", usuario.__saldo)           
         
 
         
  def getCuenta(self):
-        return self.__especie
+        return self.__cuenta
     
- def setCuenta(self,cuen):
-        self.__cuenta=cuen
+ def setCuenta(self,cuenta):
+        self.__cuenta=cuenta
     
- def getTitular(self):
+ def getNombre(self):
         return self.__nombre
     
- def setTitular(self,nom):
+ def setNombre(self,nom):
         self.__nombre=nom
         
  def getEdad(self):
         return self.__edad
     
- def setCuenta(self,edad):
+ def setEdad(self,edad):
         self.__edad=edad
         
  def getSaldo(self):
