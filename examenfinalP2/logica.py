@@ -27,20 +27,35 @@ class logica():
              else:
                    messagebox.showinfo("Listo",str(Unidad[N]))
                    
-                   
+
+    
+
+     
+ 
     def conversor1(numero1):
+        numerx=numero1
+        romanos = {'I': 1, 'V': 5, 'X': 10,'L': 50, 'C': 100, 'D': 500, 'M': 1000}
         
         total = 0
         prev = 0
-        for letra in numero1[::-1]:
-         valor = numero1[letra]
-         total += valor if valor >= prev else -valor
-         prev = valor
-      
-        if(total>50):
-            messagebox.showerror("Listo","El numero excede 50")
+        
+        import re
+        
+        
+        if ((bool(re.search(r"^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$",numerx)))==False):
+            messagebox.showerror("Error","Numero invalido")
         else:
-         messagebox.showinfo("Listo",str(total)) 
+           
+
+            for letra in numero1[::-1]:
+                valor = romanos[letra]
+                total += valor if valor >= prev else -valor
+                prev = valor
+      
+            if(total>50):
+                messagebox.showerror("Listo","El numero excede 50")
+            else:
+                messagebox.showinfo("Listo",str(total)) 
         
         
     

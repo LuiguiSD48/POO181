@@ -1,23 +1,17 @@
-
-import string
-import random
-
-
-length_of_string = 8
-
-print(''.join(random.choice(string.ascii_letters + string.digits) for _ in range(length_of_string)))
-
-length_of_string = 8
-
-print(''.join(random.choice(string.ascii_letters+str('+*-%/&#!?¿')) for _ in range(length_of_string)))
-length_of_string = 8
-
-print(''.join(random.choice(string.ascii_letters + string.digits) for _ in range(length_of_string)))
-
-length_of_string = 8
-
-print(''.join(random.choice(string.ascii_lowercase) for _ in range(length_of_string)))
-
-length_of_string = 8
-
-print(''.join(random.choice(string.ascii_uppercase) for _ in range(length_of_string)))
+# Function to Validate the Roman numeral
+def ValidationOfRomanNumerals(string):
+     
+    # Importing regular expression
+    import re
+     
+    # Searching the input string in expression and
+    # returning the boolean value
+    print(bool(re.search(r"^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$",string)))
+ 
+# Driver code
+ 
+# Given string
+string="VX"
+ 
+# Function call
+ValidationOfRomanNumerals(string)

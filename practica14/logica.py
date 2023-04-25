@@ -1,50 +1,85 @@
 from tkinter import messagebox
+import sqlite3
 
 
 class usuario:
  
- def __init__(self,nom,edad,saldo,cuenta):
-        #atributos
+     def __init__(self):
+        pass
 
-        self.__nombre=nom
-        self.__edad=edad
-        self.__saldo=saldo
-        self.__cuenta=cuenta
+     def conexionBD(self):
+        try: 
+                     conexion=sqlite3.connect("C:/Users/Luis/Documents/GitHub/POO181/practica14/CajaPopular.db")
+                     print("Conectado a la base de datos")
+                     return conexion
+        
+        except sqlite3.OperationalError:
+                     print("No se pudo conectar")
+         
+     def guardarUsuario(self,tit,edad,saldo):
+        #Importar conexion
+        conx= self.conexionBD()
+        
+        #Validar campos
+        if(tit=="" or edad=="" or saldo==""):
+            messagebox.showwarning("Ojitooo!","Formulario incompleto")
+        else:
+            
+            #Preparamos cursor,datos,querySQL
+            cursor=conx.cursor()
+         
+            datos=(tit,edad,saldo)
+            qrInsert= "insert into usuarios (Titular,Edad,Saldo) values (?,?,?)"
+            
+            #Ejrecutar insercion
+            cursor.execute(qrInsert,datos)
+            conx.commit()
+            conx.close()
+            messagebox.showinfo("Exito","Usuario Guardado")
+    
+    
+     def consultarSaldo(self,cuenta):
+         conx= self.conexionBD()
+        
+        #Validar campos
+         if(cuenta==""):
+                     messagebox.showwarning("Ojitooo!","Formulario incompleto")
+         else:
+            
+                     #Preparamos cursor,datos,querySQL
+                     cursor=conx.cursor()
+         
+                     selecQry = "SELECT saldo FROM usuarios WHERE Cuenta="+cuenta
+            
+                     cursor.execute(selecQry)
+                     rsUsuario = cursor.fetchall()
+                     conx.close()
+                     messagebox.showinfo("Su saldo es",str(rsUsuario))   
+        
+     def retirarSaldo(self,cuenta,saldo):
+         conx= self.conexionBD()
+         if(cuenta==""):
+                     messagebox.showwarning("Ojitooo!","Formulario incompleto")
+         else:
+            
+                     #Preparamos cursor,datos,querySQL
+                     cursor=conx.cursor()
+         
+                     selecQry = "SELECT saldo FROM usuarios WHERE Cuenta="+cuenta
+            
+                     cursor.execute(selecQry)
+                     rsUsuario = cursor.fetchall()
+                     conx.close()
+
+                     cantidad=str(rsUsuario)
+                     cantidad=int(cantidad)
+                     nuevacan=cantidad-int(saldo) 
+                     print(str(nuevacan))     
       
- def mostrarSaldo(self):
-        messagebox.showinfo("Su saldo es",self.__saldo)
-    
- def ingresarEfectivo(self,cantidad):
-        usuario.__saldo=usuario.__saldo+int(cantidad)
-        messagebox.showinfo("Su nuevo saldo es", usuario.__saldo)   
-        
- def retirarEfectivo(self,dispo):
-        usuario.__saldo=usuario.__saldo-int(dispo)
-        messagebox.showinfo("Su nuevo saldo es", usuario.__saldo)           
         
 
         
- def getCuenta(self):
-        return self.__cuenta
-    
- def setCuenta(self,cuenta):
-        self.__cuenta=cuenta
-    
- def getNombre(self):
-        return self.__nombre
-    
- def setNombre(self,nom):
-        self.__nombre=nom
+
         
- def getEdad(self):
-        return self.__edad
-    
- def setEdad(self,edad):
-        self.__edad=edad
-        
- def getSaldo(self):
-        return self.__saldo
-    
- def setCuenta(self,saldo):
-        self.__saldo=saldo
-        
+ 
+
